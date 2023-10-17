@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-	before_action :set_topico, only: %i[ show edit update destroy ]
+	before_action :set_topic, only: %i[ show edit update destroy ]
 	def index
 		@topics = Topic.all
 	end
@@ -18,11 +18,11 @@ class TopicsController < ApplicationController
 
 	def create
     # topico_params = params.require(:topico).permit(:titulo)  - substituimos pelo metodo params
-    @topico = Topic.new(topic_params)
+    @topic = Topic.new(topic_params)
     
     respond_to do |format|
       if @topic.save
-        format.html { redirect_to topico_url(@topic), notice: "Topico was successfully created." }
+        format.html { redirect_to topic_url(@topic), notice: "Topico was successfully created." }
         
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class TopicsController < ApplicationController
       # O flash permite empurrar alguns primitivos do ruby até a proxima action q será executada(string, array e hash..)
       # e aí posso guardar dentro uma msg de sucesso pro usuario. Depois usamos lá na view
 
-      redirect_to topico_url(@topic), notice:"Tópico atualizado!"
+      redirect_to topic_url(@topic), notice:"Tópico atualizado!"
     else
       render :edit, status: :unprocessable_entity
     end
