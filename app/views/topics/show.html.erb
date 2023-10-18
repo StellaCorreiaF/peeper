@@ -4,6 +4,6 @@
   <%= link_to "Editar tópico", edit_topic_path(@topic) %>
   <%= button_to "Excluir tópico", @topic, method: :delete%> 
 </div>
-<% if notice.nil?.present? %>
+<% if notice %>
   <p style="color: green"><%= notice %></p>
 <% end %>

@@ -1,7 +1,6 @@
 <%= form_with(model: @topic) do |form| %>
   <% if @topic.errors.any? %>
     <div style="color: red">
-
       <ul>
         <% @topic.errors.each do |error| %>
           <li><%= error.full_message %></li>
