@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments
+    get 'comments', to: 'comments#index', on: :member, as: 'show_comments'
   end
 
 
