@@ -8,7 +8,8 @@
     <p>
       <%= link_to "Show this post", post %>
     </p>
-  <% end %>
+    <span><%= post.comments.count %> Comments</span>
+<% end %>
 </div>
 
 <%= link_to "New post", new_post_path %>
