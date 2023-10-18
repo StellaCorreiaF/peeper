@@ -4,11 +4,11 @@
 
 <div id="comments">
   <% @comments.each do |comment| %>
-    <%= render comment %>
+    <h3><%= comment.body %></h3>
     <p>
-      <%= link_to "Show this comment", comment %>
+      post:
+      <%= comment.post.title %>
     </p>
+    <hr>
   <% end %>
 </div>
-
-<%= link_to "New comment", new_comment_path %>

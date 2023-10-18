@@ -1,5 +1,5 @@
 <div>
-  <%= @topics.each do |t| %>
-    <%= render t, locals: { topic: t} %> <br>
+  <% @topics.each do |t| %>
+    <%= t.titulo %> <br>
   <% end %>
 </div>

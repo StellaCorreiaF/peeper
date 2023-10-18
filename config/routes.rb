@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
-  resources :comments
 
+  resources :posts do
+    resources :comments
+  end
+
+
+  resources :comments
   root to: "welcome#index"
   
-  resources :posts
+
+
   get "/topics", to: "topics#index"
   post "/topics", to: "topics#create"
   get "/topics/new", to: "topics#new", as: :new_topic
