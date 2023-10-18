@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy]
+  before_action :set_post, only: %i[new create show edit update destroy]
   before_action :set_comment, only: %i[show edit update destroy]
 
   def index
-    @comments = Comment.all
+    @comments = Comment.includes(:post).all
   end
 
   def show
@@ -17,7 +17,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
 
     respond_to do |format|
@@ -53,6 +52,7 @@ class CommentsController < ApplicationController
   end
 
   private
+
   def set_post
     @post = Post.find(params[:post_id])
   end
