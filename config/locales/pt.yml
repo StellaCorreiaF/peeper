@@ -1,0 +1,7 @@
+pt:
+  new_topic: 'Topico cadastrado com sucesso'
+  edit_topic: 'Topico atualizado com sucesso'
+  destroy: 'Topico removido com sucesso'
+  new-post: 'Post criado com sucesso'
+  edit_post: 'Post atualizado com sucesso'
+  post_destroy: 'Post removido com sucesso'
