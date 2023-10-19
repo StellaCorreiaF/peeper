@@ -1,5 +1,6 @@
 <div>
-  <% @topics.each do |t| %>
-    <%= t.titulo %> <br>
+  <% @posts.each do |t| %>
+    <%= link_to t.body, post_path(t) %> <br>
+    
   <% end %>
 </div>
