@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+
+
   resources :posts do
     resources :comments
     get 'comments', to: 'comments#index', on: :member, as: 'show_comments'

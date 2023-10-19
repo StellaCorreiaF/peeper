@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-
+  before_action :authenticate_user!, only: [:new, :create]
   before_action :set_post, only: %i[ show edit update destroy ]
-
+ 
   def index
     @posts = Post.all
   end
@@ -59,6 +59,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit( :user_id, :body )
   end
 end
