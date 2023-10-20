@@ -10,10 +10,10 @@
   <%= button_to "Destroy this post", @post, method: :delete %>
 </div>
 <hr>
-<h2>Comments</h2>
+<h4>Comentários</h4>
 <% @post.comments.each do |comment| %>
   <div>
-    <p><%= comment.body %></p>
+    <p><strong> @<%= comment.user.name %> </strong> comentou: <%= comment.body %></p>
     <hr>
   </div>
 <% end %>

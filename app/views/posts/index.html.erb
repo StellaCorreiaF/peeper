@@ -3,13 +3,13 @@
 <h1>Posts</h1>
 
 <div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
+  <% @posts.each do |post| %>   
+    <p> <strong> @<%= post.user.name %>: </strong> <%= post.body %></p> 
     <p>
       <%= link_to "Show this post", post %>
     </p>
     <span><%= post.comments.count %> Comments</span>
-<% end %>
+  <% end %>
 </div>
 
 <%= link_to "New post", new_post_path %>

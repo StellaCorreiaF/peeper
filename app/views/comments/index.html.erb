@@ -5,10 +5,11 @@
 <div id="comments">
   <% @comments.each do |comment| %>
     <p>
-      <%= comment.post.user.name%>: 
+      <strong>@<%= comment.post.user.name%>: </strong>
       <%= comment.post.body %>
     </p>
-    <h3><%= comment.body %></h3>    
+      <strong>@<%= comment.user.name %></strong> comentou: 
+      <h3><%= comment.body %></h3>    
     <hr>
   <% end %>
 </div>
