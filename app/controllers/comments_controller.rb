@@ -19,7 +19,9 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
+    @comment.user_id = current_user.id
 
     respond_to do |format|
       if @comment.save
@@ -64,7 +66,7 @@ class CommentsController < ApplicationController
   end
   
   def comment_params
-    params.require(:comment).permit(:user_id, :post_id, :body)
+    params.require(:comment).permit(:post_id, :body)
   end
   
 end
