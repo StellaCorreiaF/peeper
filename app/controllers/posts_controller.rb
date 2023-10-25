@@ -23,7 +23,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to post_url(@post), notice: t('new-post') }
+        format.html { redirect_to root_path, notice: t('new-post') }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -60,6 +60,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit( :user_id, :body )
+    params.require(:post).permit( :user_id, :body, :topic_id )
   end
 end
