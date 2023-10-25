@@ -1,6 +1,23 @@
-<div>
-  <% @posts.each do |t| %>
-    <%= link_to t.body, post_path(t) %> <br>
-    
-  <% end %>
+<div class="container">  
+  <div class="sidebar">
+   <h2>Tópicos</h2>     
+    <ul>
+      <% @topics.each do |topic| %>
+      <li>
+        <%= link_to topic.titulo, topic_path(topic) %>
+      </li>
+      <% end %>
+    </ul>
+  </div> 
+  <div class="main-content">
+    <h1>Posts</h1>
+      <%= link_to "Criar post", new_post_path, class: "btn" %>
+      <% @posts.each do |post| %>
+      <div class="post-box">
+        <p class="post-body"><%= post.body %></p>
+        <%= link_to 'Ver post', post_path(post) %>
+      </div>
+      <% end %>
+  </div>
 </div>
+
