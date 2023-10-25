@@ -39,7 +39,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  max-width: 1400px;
+  max-width: 1400px;     
   margin: 0 auto;
   padding: 20px;
 }
@@ -72,6 +72,7 @@ h4 {
 .sidebar {
   flex: 1;
   max-width: 250px;
+  height: 1200px;
   background-color: #fff;
   border: 1px solid #e1e8ed;
   padding: 10px;
@@ -89,6 +90,7 @@ h4 {
 .right-sidebar {
   flex: 1;
   max-width: 250px;
+  height: 100%;
   background-color: #fff;
   border: 1px solid #e1e8ed;
   padding: 10px;
@@ -96,7 +98,7 @@ h4 {
   /* Adicione estilos específicos para a barra lateral direita aqui */
 }
 
-.sidebar-title {
+.sidebar-title {  
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -177,15 +179,7 @@ h4 {
   margin: 10px 0; /* Espaçamento entre os links */
 }
 
-.post-container {
-  max-width: 800px; /* Defina o valor desejado para a largura máxima */
-  margin: 0 auto; /* Centralizar o conteúdo horizontalmente */
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+
 
 
 /* Estilos para os botões de ação do post */
