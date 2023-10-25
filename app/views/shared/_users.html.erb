@@ -1,0 +1,8 @@
+<h2 class="sidebar-title">Quem Seguir</h2>
+<ul class="topic-list">
+  <% @random_users.each do |user| %>
+    <li class="topic-item">
+      <%= link_to "@#{user.name}", user_path(user), class: "topic-link" %>
+    </li>
+  <% end %>
+</ul>
