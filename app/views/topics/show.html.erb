@@ -7,3 +7,10 @@
 <% if notice %>
   <p style="color: green"><%= notice %></p>
 <% end %>
+<h4>Posts</h4>
+<% @topic.posts.each do |post| %>
+  <div>
+    <p><strong> @<%= post.user.name %> : </p>
+    <p> <%= post.body %>  </p>
+  </div>
+<% end %>
