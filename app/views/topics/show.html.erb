@@ -1,16 +1,18 @@
-<%= render @topic %>
-<div>
-  <%= link_to "Topicos", topics_path %>
-  <%= link_to "Editar tópico", edit_topic_path(@topic) %>
-  <%= button_to "Excluir tópico", @topic, method: :delete%> 
-</div>
-<% if notice %>
-  <p style="color: green"><%= notice %></p>
-<% end %>
-<h4>Posts</h4>
-<% @topic.posts.each do |post| %>
-  <div>
-    <p><strong> @<%= post.user.name %> : </p>
-    <p> <%= post.body %>  </p>
+<div class="topic-container">  
+  
+  
+  <% if notice %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
+  <h4>As pessoas estão comentando</h4>
+  <% @topic.posts.each do |post| %>
+    <div class="post">
+      <p class="post-user">@<%= post.user.name %></p>
+      <p class="post-body"><%= post.body %></p>
+    </div>
+  <% end %>
+
+  <div class="topic-actions">
+    <%= link_to "Voltar", root_path, class: "btn" %>  
   </div>
-<% end %>
+</div>

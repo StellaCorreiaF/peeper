@@ -1,23 +1,26 @@
 <div class="container">  
   <div class="sidebar">
-   <h2>Tópicos</h2>     
-    <ul>
-      <% @topics.each do |topic| %>
-      <li>
-        <%= link_to topic.titulo, topic_path(topic) %>
+  <h2 class="sidebar-title">Tópicos</h2>
+  <ul class="topic-list">
+    <% @topics.each do |topic| %>
+      <li class="topic-item">
+        <%= link_to topic.titulo, topic_path(topic), class: "topic-link" %>
       </li>
-      <% end %>
-    </ul>
-  </div> 
+    <% end %>
+  </ul>
+</div>
+
   <div class="main-content">
     <h1>Posts</h1>
       <%= link_to "Criar post", new_post_path, class: "btn" %>
       <% @posts.each do |post| %>
-      <div class="post-box">
-        <p class="post-body"><%= post.body %></p>
-        <%= link_to 'Ver post', post_path(post) %>
-      </div>
+        <div class="post-box" onclick="window.location='<%= post_path(post) %>';">
+          <p class="post-user">@<%= post.user.name %></p>
+          <p class="post-body"><%= post.body %></p>
+        </div>     
+      
       <% end %>
   </div>
 </div>
 
+ 

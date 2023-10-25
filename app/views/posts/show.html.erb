@@ -1,19 +1,30 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @post %>
+<div class="post-container">
+  <%= link_to root_path do %>
+  <i class="fas fa-chevron-left"></i>
+  <%end%>
+  <div class="post-actions">    
+  <div class="post-menu">
+    <span class="post-menu-icon">...</span>
+    <div class="post-menu-options">
+      <%= link_to "Edit this post", edit_post_path(@post) %>
+      <%= link_to "Back to posts", posts_path %>
+      <%= button_to "Destroy this post", @post, method: :delete %>
+    </div>
+  </div>  
 
-<div>
-  <%= link_to "New Comment", new_post_comment_path(@post) %>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-
-  <%= button_to "Destroy this post", @post, method: :delete %>
-</div>
+  <%= render @post %> 
 <hr>
+ <%= link_to "Comentar", new_post_comment_path(@post), class: "btn btn-primary" %>
 <h4>Comentários</h4>
-<% @post.comments.each do |comment| %>
-  <div>
-    <p><strong> @<%= comment.user.name %> </strong> comentou: <%= comment.body %></p>
-    <hr>
-  </div>
-<% end %>
+<div class="comments">
+  <% @post.comments.each do |comment| %>
+    <div class="comment">
+      <p class="comment-user"><strong>@<%= comment.user.name %></strong> comentou:</p>
+      <p class="comment-body"><%= comment.body %></p>
+      <hr>
+    </div>
+  <% end %>
+</div>
+</div>
