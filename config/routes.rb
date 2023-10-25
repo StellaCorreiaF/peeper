@@ -13,18 +13,20 @@ Rails.application.routes.draw do
     get 'comments', to: 'comments#index', on: :member, as: 'show_comments'
   end
 
+  resources :topics do
+    get 'posts', on: :member
+  end
+  
+  resources :posts do
+    get 'topic/:id', action: :show_topic_posts, on: :collection, as: :topic_posts
+  end
+  
 
   resources :comments
   root to: "welcome#index"
   
 
 
-  get "/topics", to: "topics#index"
-  post "/topics", to: "topics#create"
-  get "/topics/new", to: "topics#new", as: :new_topic
-  get "/topics/:id/edit", to: "topics#edit", as: :edit_topic
-  get "/topics/:id", to: "topics#show", as: :topic
-  patch "topics/:id", to: "topics#update"
-  put "topics/:id", to: "topics#update"
-  delete "topics/:id", to: "topics#destroy"
+ 
+  
 end
