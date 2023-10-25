@@ -1,8 +1,11 @@
 <h2 class="sidebar-title">Quem Seguir</h2>
 <ul class="topic-list">
   <% @random_users.each do |user| %>
-    <li class="topic-item">
-      <%= link_to "@#{user.name}", user_path(user), class: "topic-link" %>
-    </li>
-  <% end %>
+  <li class="topic-item">
+    <%= link_to user_path(user) do %>
+      <%= image_tag user.profile_image, class: "profile-image" if user.profile_image.attached? %>
+      <span class="username">@<%= user.name %></span>
+    <% end %>
+  </li>
+	<% end %>
 </ul>
