@@ -22,10 +22,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
     <div class="header-links">
         <img src="<%= asset_path('logo1.png') %>" alt="Seu Logo" class="logo-image">
-        <span class="logo-text">Peeper</span>
+        <%= link_to root_path do %>
+          <span class="logo-text">Peeper</span>
+        <% end %>
         <%= link_to "Log in", new_user_session_path, method: :get %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, url: root_path %>
-        <%= link_to "Home", root_path %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, url: root_path %>        
     </div>
   </div>  
 </header>
