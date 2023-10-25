@@ -10,17 +10,30 @@
   </ul>
 </div>
 
-  <div class="main-content">
-    <h1>Posts</h1>
-      <%= link_to "Criar post", new_post_path, class: "btn" %>
-      <% @posts.each do |post| %>
-        <div class="post-box" onclick="window.location='<%= post_path(post) %>';">
+<div class="main-content">
+  <h1>Posts</h1>
+    <%= link_to "Criar post", new_post_path, class: "btn" %>
+    <% @posts.each do |post| %>
+      <div class="post-box" onclick="window.location='<%= post_path(post) %>';">
           <p class="post-user">@<%= post.user.name %></p>
           <p class="post-body"><%= post.body %></p>
-        </div>     
+      </div>     
       
-      <% end %>
-  </div>
+    <% end %>
 </div>
+
+<div class="sidebar">
+    <h2 class="sidebar-title">Quem Seguir</h2>
+    <ul class="topic-list">
+      <% @random_users.each do |user| %>
+        <li class="topic-item">
+          <%= link_to "@#{user.name}", user_path(user), class: "topic-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>
+
 
  
