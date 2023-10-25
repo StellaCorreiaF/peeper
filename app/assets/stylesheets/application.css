@@ -26,9 +26,6 @@ header {
   margin-left: 20px;
 }
 
-/* Outros estilos para o cabeçalho */
-/* Adicione outros estilos específicos para o cabeçalho aqui */
-
 
 body {
   font-family: Arial, sans-serif;
@@ -40,9 +37,9 @@ body {
 /* Estilos gerais para o contêiner */
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -54,19 +51,23 @@ body {
   background-color: #fff;
   border: 1px solid #e1e8ed;
   padding: 10px;
-  border-radius: 5px;
-  /* Adicione estilos específicos para a barra lateral aqui */
+  border-radius: 5px; 
 }
 
 /* Estilos para o conteúdo principal */
 .main-content {
   flex: 2;
-  max-width: 600px;
+  max-width: 800px;
   background-color: #fff;
   border: 1px solid #e1e8ed;
   padding: 10px;
   border-radius: 5px;
-  /* Adicione estilos específicos para o conteúdo principal aqui */
+}
+
+h1 {
+  font-size: 20px; /* Ajuste o tamanho da fonte do título dos posts conforme necessário */
+  margin: 10px 0; /* Espaçamento superior e inferior do título */
+  color: #333; /* Cor do título dos posts */
 }
 
 /* Estilos para a barra lateral direita */
@@ -78,4 +79,45 @@ body {
   padding: 10px;
   border-radius: 5px;
   /* Adicione estilos específicos para a barra lateral direita aqui */
+}
+
+.post-box {
+  background-color: #fff;
+  padding: 10px;
+  margin: 10px 0; /* Espaçamento entre os posts */
+  border: 1px solid #e1e8ed;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave nos posts */
+}
+
+.post-body {
+  color: #333; /* Cor do corpo dos posts */
+}
+
+/* Estilo para o link "Ver post" */
+.post-link {
+  color: #1DA1F2; /* Cor do link */
+  text-decoration: none;
+  display: block;
+  margin: 10px 0; /* Espaçamento entre os links */
+}
+
+/* styles.css */
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.create-post-button {
+  text-align: right;
+  margin-top: 10px;
 }
