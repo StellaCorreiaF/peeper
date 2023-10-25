@@ -20,6 +20,11 @@ module Peeper
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.default_locale = :pt
     config.autoload_paths += Dir["#{config.root}/app/controllers/concerns"]
+    # application.rb ou application_controller.rb
+
+    config.action_dispatch.default_headers['Access-Control-Allow-Origin'] = 'http://localhost:8080'
+    config.action_dispatch.default_headers['Access-Control-Request-Method'] = %w{GET POST PUT DELETE}.join(',')
+
 
 
   end
