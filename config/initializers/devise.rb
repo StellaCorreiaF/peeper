@@ -262,8 +262,10 @@ Devise.setup do |config|
   # If you have any extra navigational formats, like :iphone or :mobile, you
   # should add them to the navigational formats lists.
   #
-  # The "*/*" below is required to match Internet Explorer requests.
-  # config.navigational_formats = ['*/*', :html, :turbo_stream]
+  config.navigational_formats = ['*/*', :html]
+  config.http_authenticatable_on_xhr = true
+  config.account_update_whitelist = ["name", "profile_image"]
+  
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
