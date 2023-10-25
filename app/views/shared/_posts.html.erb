@@ -1,9 +1,10 @@
-<h1>Posts</h1>
-<%= link_to "Criar post", new_post_path, class: "btn" %>
-<% @posts.each do |post| %>
-  <div class="post-box" onclick="window.location='<%= post_path(post) %>';">
-    <p class="post-user">@<%= post.user.name %></p>
-    <p class="post-body"><%= post.body %></p>
-  </div>     
- 
-<% end %>
+<div class="main-content" style="max-height: 1200px; overflow-y: auto;">
+  <h1>Posts</h1>
+  <%= link_to "Criar post", new_post_path, class: "btn" %>
+  <% @posts.each do |post| %>
+    <div class="post-box" onclick="window.location='<%= post_path(post) %>';">
+      <p class="post-user">@<%= post.user.name %></p>
+      <p class="post-body"><%= post.body %></p>
+    </div>       
+  <% end %>
+</div>
