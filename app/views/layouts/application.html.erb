@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Peeper</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <title>Peeper</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
-
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>  
+  <%= javascript_importmap_tags %>
+</head>
+<header>
+  <div class="header-content">
+    <div class="header-links">
+        <%= link_to "Log in", new_user_session_path, method: :get %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, url: root_path %>
+        <%= link_to "Home", root_path %>
+    </div>
+  </div>  
+</header>
   <body>
     <%= yield %>
   </body>
