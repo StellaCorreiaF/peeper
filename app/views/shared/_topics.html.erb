@@ -1,7 +1,7 @@
 <div class="sidebar">
-  <h2 class="sidebar-title">Tópicos</h2>
+  <h2 class="sidebar-title">Assuntos em alta</h2>
   <ul class="topic-list">
-    <% @topics.each do |topic| %>
+    <% @topics_with_posts.each do |topic| %>
       <li class="topic-item">
         <%= link_to topic.titulo, topic_path(topic), class: "topic-link" %>
       </li>
