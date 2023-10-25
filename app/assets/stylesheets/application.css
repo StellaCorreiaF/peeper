@@ -44,16 +44,6 @@ body {
   padding: 20px;
 }
 
-/* Estilos para a barra lateral */
-.sidebar {
-  flex: 1;
-  max-width: 250px;
-  background-color: #fff;
-  border: 1px solid #e1e8ed;
-  padding: 10px;
-  border-radius: 5px; 
-}
-
 /* Estilos para o conteúdo principal */
 .main-content {
   flex: 2;
@@ -70,7 +60,32 @@ h1 {
   color: #333; /* Cor do título dos posts */
 }
 
-/* Estilos para a barra lateral direita */
+.notice {
+  color: green;
+}
+
+h4 {
+  margin-top: 20px;
+}
+
+/* Estilos para a barra lateral */
+.sidebar {
+  flex: 1;
+  max-width: 250px;
+  background-color: #fff;
+  border: 1px solid #e1e8ed;
+  padding: 10px;
+  border-radius: 5px; 
+}
+
+/* .sidebar {
+  width: 250px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+} */
+
 .right-sidebar {
   flex: 1;
   max-width: 250px;
@@ -79,6 +94,66 @@ h1 {
   padding: 10px;
   border-radius: 5px;
   /* Adicione estilos específicos para a barra lateral direita aqui */
+}
+
+.sidebar-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.topic-list {
+  list-style: none;
+  padding: 0;
+}
+
+.topic-item {
+  margin-bottom: 10px;
+}
+
+.topic-link {
+  text-decoration: none;
+  color: #1DA1F2;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.topic-link:hover {
+  color: #0F7FCE;
+}
+
+.topic-header {
+  background-color: #1DA1F2;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px 5px 0 0;
+}
+
+.topic-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.topic-container {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.topic-actions {
+  margin-top: 10px;
+}
+
+.post {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
 }
 
 .post-box {
@@ -102,7 +177,70 @@ h1 {
   margin: 10px 0; /* Espaçamento entre os links */
 }
 
-/* styles.css */
+.post-container {
+  max-width: 800px; /* Defina o valor desejado para a largura máxima */
+  margin: 0 auto; /* Centralizar o conteúdo horizontalmente */
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilos para os botões de ação do post */
+/* Estilos para o menu de ações */
+.post-actions {
+  margin-top: 10px;
+}
+
+.post-menu {
+  display: inline-block;
+  position: relative;
+}
+
+.post-menu-icon {
+  cursor: pointer;
+  right: 0; 
+}
+
+.post-menu-options {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  right: 0; /* Alinha o menu à direita */
+  top: 100%; /* Posiciona o menu abaixo do ícone */
+}
+
+.post-menu:hover .post-menu-options {
+  display: block;
+}
+
+
+.comments {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.comment {
+  margin: 10px 0;
+}
+
+.comment-user {
+  font-weight: bold;
+}
+
+.comment-body {
+  color: #333;
+}
+
 .btn {
   background-color: #007bff;
   color: #fff;
@@ -116,6 +254,31 @@ h1 {
   margin: 4px 2px;
   cursor: pointer;
 }
+.btn-primary {
+  background-color: #007bff;
+  color: #fff; 
+  font-size: 14px;
+  padding: 10px 5px; ;
+}
+
+.btn-info {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: #0F7FCE;
+}
+
+.btn-danger {
+  background-color: #FF4500;
+}
+
 
 .create-post-button {
   text-align: right;
