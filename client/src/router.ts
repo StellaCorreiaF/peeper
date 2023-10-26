@@ -4,6 +4,7 @@ import Posts from './components/Posts.vue'
 import Topics from './components/Topics.vue'
 import Comments from './components/Comments.vue'
 import PostDetails from './components/PostDetails.vue'
+import TopicDetails from './components/TopicDetails.vue'
 
 const routes: Array<RouteRecordRaw> = [
  {
@@ -20,6 +21,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/posts/:id',
     name: 'post-details',
 		component: PostDetails
+   
+  },
+	{
+    path: '/topics/:id',
+    name: 'topic-details',
+		component: TopicDetails
    
   },
 	{

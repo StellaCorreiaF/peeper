@@ -31,20 +31,19 @@ export default defineComponent({
 })
 </script>
 
-<template>
-	New Topic:
-	<div>
-		Titulo: <textarea v-model="titulo" /><br />
-		<button @click="createTopic">Create Topic</button>
-	</div>
-	<h1>Topics</h1>
-	<div v-for="topic in topics">
-		<div>		
-		<div>{{ topic.titulo }}</div>
-		</div>
-	</div>
+<template>	
+	<h1>As pessoas estão comentando</h1>
+	<div v-for="topic in topics" :key="topic.id">
+  <div>
+    <div>       
+      {{ topic.titulo }}
+    </div>
+    <router-link :to="{ name: 'topic-details', params: { id: topic.id } }">
+      Ver detalhes
+    </router-link>
+  </div>
+</div>
 </template>
-
 <style scoped>
-/* Estilos específicos para o componente WelcomePage.vue */
+@import '../style.css'
 </style>

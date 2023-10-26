@@ -4,7 +4,7 @@
       <h2 class="sidebar-title">Assuntos em alta</h2>
       <ul class="topic-list">     
         <li class="topic-item" v-for="topic in topics" :key="topic.id">
-          <router-link :to="`/topic/${topic.id}`">{{ topic.titulo }}</router-link>
+          <router-link :to="`/topics/${topic.id}`">{{ topic.titulo }}</router-link>
         </li>
       </ul>
     </div>      

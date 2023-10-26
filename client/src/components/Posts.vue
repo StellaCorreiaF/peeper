@@ -15,6 +15,14 @@ export default defineComponent({
 			const response = await api.get("/posts")
 			this.posts = response.data
 		},
+		async loadPostDetails(postId) {
+    try {
+      const response = await api.get(`/posts/${postId}`);
+      // Faça algo com os detalhes do post, se necessário
+    } catch (error) {
+      console.error('Erro ao carregar detalhes do post:', error);
+    }
+  },
 		clearForm() {			
 			this.body = ""
 		},
@@ -31,16 +39,25 @@ export default defineComponent({
 })
 </script>
 
-<template>
-	New Post:
-	<div>
-		Body: <textarea v-model="body" /><br />
-		<button @click="createPost">Create Post</button>
-	</div>
+<template>	
 	<h1>Posts</h1>
-	<div v-for="post in posts">
-		<div>		
-		<div>{{ post.body }}</div>
-		</div>
-	</div>
- </template>
+	<div v-for="post in posts" :key="post.id">
+  <div>
+    <div>
+      @{{ post.user.name }}: 
+      {{ post.body }}
+    </div>
+    <router-link :to="{ name: 'post-details', params: { id: post.id } }">
+      Ver detalhes
+    </router-link>
+  </div>
+</div>
+</template>
+
+
+<style scoped>
+
+@import '../style.css'
+
+
+</style>
