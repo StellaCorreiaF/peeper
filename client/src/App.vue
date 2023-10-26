@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import Posts from './components/Posts.vue'  // Certifique-se de que o nome do componente está correto
 
 </script>
 
 
 <template>
   <div>
-    <router-view></router-view>
+    <router-view>
+      
+    </router-view>
   </div>
 </template>
 
