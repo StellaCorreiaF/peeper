@@ -3,6 +3,8 @@ import Index from './components/Index.vue'
 import Posts from './components/Posts.vue'
 import Topics from './components/Topics.vue'
 import Comments from './components/Comments.vue'
+import PostDetails from './components/PostDetails.vue'
+
 const routes: Array<RouteRecordRaw> = [
  {
 		path: '/',
@@ -14,6 +16,12 @@ const routes: Array<RouteRecordRaw> = [
 		name: 'posts',
 		component: Posts
 	},
+	{
+    path: '/posts/:id',
+    name: 'post-details',
+		component: PostDetails
+   
+  },
 	{
 		path: '/topics',
 		name: 'topics',
