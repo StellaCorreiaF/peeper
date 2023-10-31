@@ -167,7 +167,14 @@ h4 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave nos posts */
 }
 
-.post-body {
+.no-link-style {
+  /* Suas regras de estilo aqui */
+  text-decoration: none; /* Exemplo: removendo a decoração de link */
+  color: #333; /* Exemplo: definindo a cor do texto */
+}
+
+
+.post-body {  
   color: #333; /* Cor do corpo dos posts */
 }
 
