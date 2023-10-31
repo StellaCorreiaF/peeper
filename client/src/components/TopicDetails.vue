@@ -1,16 +1,19 @@
-<template>
-  <div class="topic-container">
-    <h4>As pessoas estão comentando</h4>
-    
-    
-    <div v-for="post in topic.posts" :key="post.id" class="post">
-      <p class="post-user">@{{ post.user.name }}</p>
-      <p class="post-body">{{ post.body }}</p>
-    </div>
+<template>   
+  <div class="topic-container">  
 
+    <h4>As pessoas estão comentando</h4>
     <div class="topic-actions">
       <router-link to="/" class="btn">Voltar</router-link>
     </div>
+    <div v-if="topic">      
+      <p >{{ topic.titulo }}: </p>
+      
+			<div id="posts" v-for="post in posts" :key="post.id">
+				<p class="post-user">@{{ post.user.name }}</p>
+        <p class="post-body">{{ post.body }}</p>
+        <hr>
+			</div>      
+    </div>    
   </div>
 </template>
 
@@ -34,7 +37,7 @@ export default defineComponent({
       try {
         const response = await api.get(`/topics/${topicId}`);
         this.topic = response.data;
-        this.loadPosts(topicId); // Carregue os comentários quando os detalhes do post estiverem disponíveis
+        this.loadPosts(topicId); 
       } catch (error) {
         console.error('Erro ao carregar detalhes do topic:', error);
       }
@@ -44,7 +47,7 @@ export default defineComponent({
         const response = await api.get(`/posts?topic_id=${topicId}`);
         this.posts = response.data;
       } catch (error) {
-        console.error('Erro ao carregar posts:', error);
+        console.error('Erro ao carregar comentários:', error);
       }
     },
   },
