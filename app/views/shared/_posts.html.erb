@@ -3,8 +3,10 @@
   <%= link_to "Criar post", new_post_path, class: "btn" %>
   <% @posts.each do |post| %>
     <div class="post-box" onclick="window.location='<%= post_path(post) %>';">
-      <p class="post-user">@<%= post.user.name %></p>
-      <p class="post-body"><%= post.body %></p>
+      <div class="post-body">
+        <p>@<%= post.user.name %></p>
+        <p ><%= post.body %></p>
+      </div>
     </div>       
   <% end %>
 </div>
