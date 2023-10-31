@@ -9,16 +9,19 @@
       </ul>
     </div>      
 
-    <div class="main-content">
+    <div class="main-content" style="max-height: 1200px; overflow-y: auto;">
       <h1>Posts</h1>
       <button class="btn" @click="createPost">Criar post</button>      
-      <div v-for="post in posts" :key="post.id">        
-        <div class="post-box">
-          <p class="post-user">@ {{ post.user.name }}</p>
-          <router-link :to="{ name: 'post-details', params: { id: post.id } }">
-            <p class="post-body no-link-style">{{ post.body }}</p>
-          </router-link>
-        </div>        
+      <div v-for="post in posts" :key="post.id">    
+          
+          <div class="post-box">  
+            <router-link :to="{ name: 'post-details', params: { id: post.id } }" class="no-link-style">  
+            <div class="post-body">
+              <p>@{{ post.user.name }}</p>              
+              <p>{{ post.body }}</p>
+            </div>       
+            </router-link>   
+          </div>    
       </div>
     </div>  
     
