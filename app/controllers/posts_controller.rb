@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  skip_before_action :verify_authenticity_token
+  #before_action :authenticate_user!, only: [:new, :create]
   before_action :set_post, only: %i[ show edit update destroy ]
  
   def index
@@ -18,8 +19,16 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
+    @post = Post.new(post_params)    
+    if current_user
+      @post.user_id = current_user.id
+    else     
+      default_user = User.find_or_create_by(email: "generic@example.com") do |user|
+        user.name = "genericUser"
+        user.password = "123456" 
+      end      
+      @post.user_id = default_user.id if default_user
+    end
 
     respond_to do |format|
       if @post.save
