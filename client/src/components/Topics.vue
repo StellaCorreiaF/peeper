@@ -32,6 +32,14 @@ export default defineComponent({
 </script>
 
 <template>	
+
+	New Topic:
+	<div>
+	Title: <input v-model="titulo" /><br />
+	
+	<button @click="createTopic">Create Topic</button>
+	</div>
+
 	<h1>As pessoas estão comentando</h1>
 	<div v-for="topic in topics" :key="topic.id">
   <div>

@@ -11,15 +11,15 @@
 
     <div class="main-content" style="max-height: 1200px; overflow-y: auto;">
       <h1>Posts</h1>
-      <button class="btn" @click="createPost">Criar post</button>      
+      <button class="btn">Criar post</button>      
       <div v-for="post in posts" :key="post.id">    
           
           <div class="post-box">  
             <router-link :to="{ name: 'post-details', params: { id: post.id } }" class="no-link-style">  
-            <div class="post-body">
-              <p>@{{ post.user.name }}</p>              
-              <p>{{ post.body }}</p>
-            </div>       
+              <div class="post-body">
+                <p>@{{ post.user.name }}</p>              
+                <p>{{ post.body }}</p>
+              </div>       
             </router-link>   
           </div>    
       </div>

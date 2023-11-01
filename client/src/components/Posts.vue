@@ -40,6 +40,11 @@ export default defineComponent({
 </script>
 
 <template>	
+		New Post:
+	<div>	
+		Body: <textarea v-model="body" /><br />
+		<button @click="createPost">Create Post</button>
+	</div>
 	<h1>Posts</h1>
 	<div v-for="post in posts" :key="post.id">
   <div>
