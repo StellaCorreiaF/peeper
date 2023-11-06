@@ -4,27 +4,27 @@
     <title>Peeper</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Inclua aqui os links para os arquivos CSS e JavaScript do seu aplicativo Vue.js -->
-  </head>
-  <header>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue&display=swap" rel="stylesheet">
-    <div class="header-content">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
-      <div class="header-links">
-        <img src="public/imgs/logo1.png" alt="Seu Logo" class="logo-image">
-        <router-link to="/">Peeper</router-link>
-        <router-link to="/login">Log in</router-link>
-        <router-link to="/logout" @click="handleLogout">Log out</router-link>
-      </div>
-    </div>
-  </header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+  </head>
   <body>
+    <header>
+      <div class="header-content">
+        <div class="header-links">
+          <img src="public/imgs/logo1.png" alt="Seu Logo" class="logo-image">
+          <router-link to="/">Peeper</router-link>
+          <router-link to="/login">Log in</router-link>
+          <router-link to="/logout" @click="handleLogout">Log out</router-link>
+        </div>
+      </div>
+    </header>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+    <footer>
+      <div class="footer-content">
+        <p>&copy; Peeper. Todos os direitos reservados. &reg;</p>
+      </div>
+    </footer>
   </body>
-  <footer>
-    <div class="footer-content">
-      <p>&copy; {{ new Date().getFullYear() }} Peeper. Todos os direitos reservados. &reg;</p>
-    </div>
-  </footer>
 </html>
