@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
 	before do
-    @user = User.create(email: 'user@example.com', password: 'password')  # Crie um usuário manualmente
+    @user = User.create(email: 'user@example.com', password: 'password') 
     sign_in @user
   end
 
