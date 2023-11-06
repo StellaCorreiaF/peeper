@@ -24,7 +24,7 @@ class PostsController < ApplicationController
       @post.user_id = current_user.id
     else     
       default_user = User.find_or_create_by(email: "generic@example.com") do |user|
-        user.name = "genericUser"
+        user.name = "artois"
         user.password = "123456" 
       end      
       @post.user_id = default_user.id if default_user

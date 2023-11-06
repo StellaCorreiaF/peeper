@@ -19,6 +19,7 @@ user2 = User.create(name: 'joao', email: 'teste2@teste.com', password: '123456',
 # Crie usuários
 user3 = User.create(name: 'carlinha', email: 'testando@teste.com', password: '123456', password_confirmation: '123456')
 user4 = User.create(name: 'jorginho', email: 'testando2@teste.com', password: '123456', password_confirmation: '123456')
+user4 = User.create(name: 'artois', email: 'generic@example.com', password: '123456', password_confirmation: '123456')
 
 
 # Crie posts
