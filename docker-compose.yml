@@ -1,13 +1,25 @@
 version: '3'
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     volumes:
-      - ./peeper:/app
+      - ./backend:/usr/src/backend
       - bundle:/usr/local/bundle
-    command: bundle exec rails s -b 0.0.0.0
+    command: bundle exec rails s -b 0.0.0.0 && if [ -f tmp/pids/server.pid ]; then rm tmp/pids/server.pid; fi
+
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.ts
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./frontend:/usr/src/frontend
+    command: yarn dev
 volumes:
   bundle:
 

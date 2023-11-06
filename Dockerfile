@@ -1,5 +1,5 @@
 ARG RUBY_VERSION=3.0.0
-FROM ruby:$RUBY_VERSION
+FROM ruby:${RUBY_VERSION}
 
 # Dependências
 RUN apt-get update -q && apt-get install -y \
@@ -11,17 +11,13 @@ WORKDIR /peeper
 
 COPY . /peeper/
 
-RUN bundle install
-# Executar migrações do banco de dados
-RUN rails db:migrate
-
-# Popular o banco de dados com dados iniciais
-RUN rails db:seed
-
-RUN git config --global init.defaultBranch main
-
-RUN gem update --system
-RUN gem install bundler
+WORKDIR /peeper/backend
+RUN bundle install && \
+    rails db:migrate && \
+    rails db:seed && \
+    git config --global init.defaultBranch main && \
+    gem update --system && \
+    gem install bundler
 
 ARG RAILS_VERSION=7.0.7.2
-RUN gem install rails -v=$RAILS_VERSION
+RUN gem install rails -v=${RAILS_VERSION}
