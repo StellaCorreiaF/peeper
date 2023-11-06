@@ -15,6 +15,9 @@
 			</div>      
     </div>
   </div>
+  <router-link :to="`/`">
+      <button class="btn"> Voltar </button>
+  </router-link>	
 </template>
 
 <script>

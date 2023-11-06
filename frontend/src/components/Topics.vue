@@ -50,7 +50,8 @@ export default defineComponent({
       Ver detalhes
     </router-link>
   </div>
-</div>
+	</div>
+
 </template>
 <style scoped>
 @import '../style.css'

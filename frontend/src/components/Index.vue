@@ -10,10 +10,11 @@
     </div>      
 
     <div class="main-content" style="max-height: 1200px; overflow-y: auto;">
-      <h1>Posts</h1>
-      <button class="btn">Criar post</button>      
-      <div v-for="post in posts" :key="post.id">    
-          
+      <h1>Posts</h1>      
+      <router-link :to="`/posts/`">
+        <button @click="createPost" class="btn">Novo Post</button>
+      </router-link>    
+      <div v-for="post in posts" :key="post.id">              
           <div class="post-box">  
             <router-link :to="{ name: 'post-details', params: { id: post.id } }" class="no-link-style">  
               <div class="post-body">
@@ -79,8 +80,7 @@ export default {
       ],
     };
   },
-  methods: {
-    
+  methods: {    
     async loadTopics() {
       try {
         const response = await api.get('/topics');
@@ -97,6 +97,11 @@ export default {
         console.error('Erro ao carregar posts:', error);
       }
     },    
+    async createPost() {
+			await api.post("/posts", {body: this.body})
+			this.clearForm()
+			this.loadPosts()
+		}
   },
   mounted() {
     this.loadTopics(); 

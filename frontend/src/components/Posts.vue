@@ -39,10 +39,10 @@ export default defineComponent({
 })
 </script>
 
-<template>	
+<template>
 		New Post:
 	<div>	
-		Body: <textarea v-model="body" /><br />
+		<textarea v-model="body" /><br />
 		<button @click="createPost">Create Post</button>
 	</div>
 	<h1>Posts</h1>
@@ -56,7 +56,11 @@ export default defineComponent({
       Ver detalhes
     </router-link>
   </div>
-</div>
+	</div>
+	<br>
+	<router-link :to="`/`">
+      <button class="btn"> Voltar </button>
+  </router-link>	
 </template>
 
 
