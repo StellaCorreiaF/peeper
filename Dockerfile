@@ -12,6 +12,11 @@ WORKDIR /peeper
 COPY . /peeper/
 
 RUN bundle install
+# Executar migrações do banco de dados
+RUN rails db:migrate
+
+# Popular o banco de dados com dados iniciais
+RUN rails db:seed
 
 RUN git config --global init.defaultBranch main
 
