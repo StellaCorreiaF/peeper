@@ -1,24 +1,54 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This README documents the necessary steps to run the application.
 
-Things you may want to cover:
 
-* Ruby version
+## Installation with Docker
 
-* System dependencies
+The command below will install all the dependencies and scripts necessary for the application to function:
 
-* Configuration
+```
+docker-compose build
+```` 
 
-* Database creation
+To start the application:
+``` 
+docker-compose up
+``` 
+## Installation without Docker
+### System Requirements
 
-* Database initialization
+With these instructions, users who are not using Docker can follow the steps to set up the environment in WSL and run the application. Make sure to provide specific versions for Ruby, Yarn, and Node, as well as any other relevant details for your project.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+Please make sure you have the following versions installed:
 
-* Deployment instructions
+- Ruby: Version 3.0.0
+- Yarn: Version 1.22.19
+- Node: Version 21.0.0
 
-* ...
+**Install Dependencies:**
+   Navigate to the project's folder on your WSL system and run the following command to install the dependencies:
+  
+Backend: 
+```
+cd backend
+bundle install
+rails db:migrate
+```
+
+Frontend
+``` 
+cd frontend: 
+yarn install
+
+``` 
+** Runing the application: **
+```
+cd backend
+rails server
+```
+``` 
+cd frontend: 
+yarn dev
+``` 
