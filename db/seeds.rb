@@ -1,8 +1,9 @@
 # Crie usuários
-User.create(name: 'stella', email: 'tes@teste.com', password: '123456', profile_image: File.new(Rails.root.join('app', 'assets', 'images', '1.jpg')))
-User.create(name: 'joao', email: 'teste2@teste.com', password: '123456', profile_image: File.new(Rails.root.join('app', 'assets', 'images', '2.jpg')))
+user1 = User.create(name: 'stella', email: 'tes@teste.com', password: '123456', password_confirmation: '123456')
+user2 = User.create(name: 'joao', email: 'teste2@teste.com', password: '123456', password_confirmation: '123456')
 
-	
+
+
 
 # Crie posts
 user1 = User.find_by(id: 1)
@@ -37,7 +38,7 @@ end
 
 # criar tópicos
 topic_titles = [
-  "negocios", "casa", "saude", "musica", "iphone", "esportes", "tecnologia", "viagens",
+  "negocios", "calor", "frio", "clima",  "casa", "saude", "musica", "iphone", "esportes", "tecnologia", "viagens",
   "alimentacao", "carros", "filmes", "fotografia", "moda", "ciencia", "educacao", "trabalho",
   "arte", "jogos", "animais", "natureza", "historia", "literatura", "culinaria", "politica",
   "economia", "religiao", "saude", "fitness", "bemestar", "amigos", "familia", "diversao",
@@ -48,3 +49,4 @@ topic_titles = [
 topic_titles.first(40).each do |title|
   Topic.create(titulo: title)
 end
+
