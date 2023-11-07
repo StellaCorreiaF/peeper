@@ -7,17 +7,14 @@ RUN apt-get update -q && apt-get install -y \
     build-essential \
     default-libmysqlclient-dev
 
-WORKDIR /peeper
-
-COPY . /peeper/
-
 WORKDIR /peeper/backend
-RUN bundle install && \
+
+RUN gem install bundler \
+    bundle install && \    
     rails db:migrate && \
     rails db:seed && \
     git config --global init.defaultBranch main && \
     gem update --system && \
-    gem install bundler
 
 ARG RAILS_VERSION=7.0.7.2
 RUN gem install rails -v=${RAILS_VERSION}
