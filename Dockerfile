@@ -15,6 +15,6 @@ RUN gem install bundler \
     rails db:seed && \
     git config --global init.defaultBranch main && \
     gem update --system && \
+    ARG RAILS_VERSION=7.0.7.2
 
-ARG RAILS_VERSION=7.0.7.2
 RUN gem install rails -v=${RAILS_VERSION}
