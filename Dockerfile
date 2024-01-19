@@ -1,20 +1,30 @@
+# Use a versão específica do Ruby
 ARG RUBY_VERSION=3.0.0
 FROM ruby:${RUBY_VERSION}
 
 # Dependências
-RUN apt-get update -q && apt-get install -y \
-    apt-utils \
-    build-essential \
-    default-libmysqlclient-dev
+RUN apt-get update -q && \
+    apt-get install -y apt-utils build-essential default-libmysqlclient-dev
 
-WORKDIR /peeper/backend
-
-RUN gem install bundler \
-    bundle install && \    
-    rails db:migrate && \
-    rails db:seed && \
+# Configuração do ambiente
+RUN gem install bundler && \
     git config --global init.defaultBranch main && \
     gem update --system && \
-    ARG RAILS_VERSION=7.0.7.2
+    bundle config --global frozen 1
 
-RUN gem install rails -v=${RAILS_VERSION}
+# Crie e defina o diretório de trabalho
+WORKDIR /peeper/backend
+
+# Copie apenas os arquivos necessários para instalar as dependências
+
+COPY backend/Gemfile backend/Gemfile.lock ./
+
+# Instale as dependências
+RUN bundle install --jobs 4 --retry 3
+
+# Copie o restante dos arquivos
+COPY . .
+
+# Migração e seed do banco de dados
+RUN rails db:migrate && \
+    rails db:seed

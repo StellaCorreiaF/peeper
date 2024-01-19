@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   before_action :set_post, only: %i[new create show edit update destroy]
   before_action :set_comment, only: %i[show edit update destroy]
-  
 
   def index
     @comments = Comment.includes(:post).all
