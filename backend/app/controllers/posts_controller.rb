@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  #before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:update, :destroy]
   before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_user, only: [:create]
  
   def index
     @posts = Post.all
@@ -20,15 +21,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)    
-    if current_user
-      @post.user_id = current_user.id
-    else     
-      default_user = User.find_or_create_by(email: "generic@example.com") do |user|
-        user.name = "artois"
-        user.password = "123456" 
-      end      
-      @post.user_id = default_user.id if default_user
-    end
+    @post.user = @user
 
     respond_to do |format|
       if @post.save
@@ -64,11 +57,23 @@ class PostsController < ApplicationController
 
   private
 
+
   def set_post
     @post = Post.find(params[:id])
   end
 
   def post_params
     params.require(:post).permit( :user_id, :body, :topic_id )
+  end
+
+  def set_user
+    if user_signed_in?
+      @user = current_user
+    else
+      @user = User.find_or_create_by(email: 'generic@example.com.br') do |user|
+        user.name = 'artois'
+        user.password = '12345567'
+      end
+    end
   end
 end

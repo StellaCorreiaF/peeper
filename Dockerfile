@@ -1,5 +1,5 @@
 # Use a versão específica do Ruby
-ARG RUBY_VERSION=3.0.0
+ARG RUBY_VERSION=3.2.2
 FROM ruby:${RUBY_VERSION}
 
 # Dependências
